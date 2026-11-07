@@ -1,7 +1,7 @@
 services:
   - type: web
     name: glucocare-ai-backend
-    env: python
+   git status runtime: python
     region: oregon
     plan: free
     buildCommand: "pip install -r backend/requirements.txt && python backend/app/ml/train.py"
