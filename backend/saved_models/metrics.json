@@ -1,0 +1,385 @@
+{
+  "dataset_name": "Pima Indians Diabetes Database",
+  "total_records": 768,
+  "train_records": 614,
+  "test_records": 154,
+  "features": [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
+  ],
+  "target": "Outcome",
+  "missing_zeros_handled": [
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI"
+  ],
+  "best_model": "Logistic Regression (Balanced)",
+  "frozen_decision_threshold": 0.35,
+  "threshold_selection_protocol": "Threshold 0.35 was selected strictly on X_train out-of-fold cross-validation predictions as a clinical sensitivity/recall-prioritizing decision (Recall: 71.96%, missing 60 cases vs 69 at th=0.40). Note that while th=0.40 achieved the highest training CV F1-score (0.6824, recall 67.76%), th=0.35 was selected to minimize false negatives in triage while maintaining strong F1 (0.6799) and precision (64.44%), and was frozen prior to evaluating the holdout test set.",
+  "calibration_status": {
+    "is_calibrated": true,
+    "calibration_method": "Platt Sigmoid Scaling (5-Fold CV on X_train)",
+    "raw_brier_score": 0.1811,
+    "calibrated_brier_score": 0.1739,
+    "brier_improvement": 0.0072
+  },
+  "selection_rationale": "Selected as primary model because Balanced Logistic Regression achieved the highest training cross-validation ROC-AUC (0.8450), highest CV sensitivity (71.98%), highest CV F1-score (0.6823), lowest train/test overfit gap (5.4%), and verified calibrated Brier score (0.1739). Decision threshold was frozen at 0.35 as a recall-prioritizing decision (71.96% recall) rather than an F1-maximizing decision (th=0.40, F1=0.6824).",
+  "coefficients_interpretation_note": "Standardized Logistic Regression coefficients represent estimated changes in model log-odds per one standard deviation change in the standardized feature. They reflect linear statistical associations within this dataset and do NOT establish biological causation or prove clinical importance.",
+  "models": {
+    "Logistic Regression (Balanced)": {
+      "accuracy": 0.7078,
+      "precision": 0.5714,
+      "recall": 0.6667,
+      "f1_score": 0.6154,
+      "roc_auc": 0.8104,
+      "brier_score": 0.1811,
+      "cv_roc_auc_mean": 0.845,
+      "cv_roc_auc_std": 0.013,
+      "cv_f1_mean": 0.6823,
+      "cv_recall_mean": 0.7198,
+      "cv_precision_mean": 0.6515,
+      "cv_accuracy_mean": 0.7671,
+      "train_accuracy": 0.7622,
+      "train_f1": 0.6756,
+      "overfit_gap_acc": 0.0544,
+      "confusion_matrix": {
+        "true_negative": 73,
+        "false_positive": 27,
+        "false_negative": 18,
+        "true_positive": 36
+      }
+    },
+    "Gradient Boosting": {
+      "accuracy": 0.7403,
+      "precision": 0.6522,
+      "recall": 0.5556,
+      "f1_score": 0.6,
+      "roc_auc": 0.8124,
+      "brier_score": 0.1698,
+      "cv_roc_auc_mean": 0.8394,
+      "cv_roc_auc_std": 0.0185,
+      "cv_f1_mean": 0.6489,
+      "cv_recall_mean": 0.6122,
+      "cv_precision_mean": 0.6957,
+      "cv_accuracy_mean": 0.7687,
+      "train_accuracy": 0.8876,
+      "train_f1": 0.8244,
+      "overfit_gap_acc": 0.1473,
+      "confusion_matrix": {
+        "true_negative": 84,
+        "false_positive": 16,
+        "false_negative": 24,
+        "true_positive": 30
+      }
+    },
+    "Random Forest": {
+      "accuracy": 0.7273,
+      "precision": 0.6579,
+      "recall": 0.463,
+      "f1_score": 0.5435,
+      "roc_auc": 0.8035,
+      "brier_score": 0.1714,
+      "cv_roc_auc_mean": 0.8402,
+      "cv_roc_auc_std": 0.0154,
+      "cv_f1_mean": 0.6145,
+      "cv_recall_mean": 0.5282,
+      "cv_precision_mean": 0.742,
+      "cv_accuracy_mean": 0.7687,
+      "train_accuracy": 0.829,
+      "train_f1": 0.72,
+      "overfit_gap_acc": 0.1017,
+      "confusion_matrix": {
+        "true_negative": 87,
+        "false_positive": 13,
+        "false_negative": 29,
+        "true_positive": 25
+      }
+    },
+    "Support Vector Machine": {
+      "accuracy": 0.6948,
+      "precision": 0.5778,
+      "recall": 0.4815,
+      "f1_score": 0.5253,
+      "roc_auc": 0.8137,
+      "brier_score": 0.1737,
+      "cv_roc_auc_mean": 0.845,
+      "cv_roc_auc_std": 0.0161,
+      "cv_f1_mean": 0.6524,
+      "cv_recall_mean": 0.5701,
+      "cv_precision_mean": 0.7672,
+      "cv_accuracy_mean": 0.7882,
+      "train_accuracy": 0.7899,
+      "train_f1": 0.656,
+      "overfit_gap_acc": 0.0951,
+      "confusion_matrix": {
+        "true_negative": 81,
+        "false_positive": 19,
+        "false_negative": 28,
+        "true_positive": 26
+      }
+    },
+    "K-Nearest Neighbors": {
+      "accuracy": 0.7338,
+      "precision": 0.6444,
+      "recall": 0.537,
+      "f1_score": 0.5859,
+      "roc_auc": 0.8069,
+      "brier_score": 0.1697,
+      "cv_roc_auc_mean": 0.8328,
+      "cv_roc_auc_std": 0.0324,
+      "cv_f1_mean": 0.6285,
+      "cv_recall_mean": 0.5707,
+      "cv_precision_mean": 0.7109,
+      "cv_accuracy_mean": 0.7655,
+      "train_accuracy": 1.0,
+      "train_f1": 1.0,
+      "overfit_gap_acc": 0.2662,
+      "confusion_matrix": {
+        "true_negative": 84,
+        "false_positive": 16,
+        "false_negative": 25,
+        "true_positive": 29
+      }
+    },
+    "Logistic Regression (Standard)": {
+      "accuracy": 0.6883,
+      "precision": 0.5652,
+      "recall": 0.4815,
+      "f1_score": 0.52,
+      "roc_auc": 0.8104,
+      "brier_score": 0.1737,
+      "cv_roc_auc_mean": 0.8444,
+      "cv_roc_auc_std": 0.016,
+      "cv_f1_mean": 0.6404,
+      "cv_recall_mean": 0.5608,
+      "cv_precision_mean": 0.7522,
+      "cv_accuracy_mean": 0.7801,
+      "train_accuracy": 0.7899,
+      "train_f1": 0.6578,
+      "overfit_gap_acc": 0.1016,
+      "confusion_matrix": {
+        "true_negative": 80,
+        "false_positive": 20,
+        "false_negative": 28,
+        "true_positive": 26
+      }
+    }
+  },
+  "frozen_threshold_test_evaluation": {
+    "threshold": 0.35,
+    "accuracy": 0.7143,
+    "precision": 0.5758,
+    "recall": 0.7037,
+    "f1_score": 0.6333,
+    "roc_auc": 0.8087,
+    "brier_score": 0.1739,
+    "confusion_matrix": {
+      "true_negative": 72,
+      "false_positive": 28,
+      "false_negative": 16,
+      "true_positive": 38
+    }
+  },
+  "train_threshold_sweep": [
+    {
+      "threshold": 0.25,
+      "train_cv_accuracy": 0.7101,
+      "train_cv_precision": 0.5552,
+      "train_cv_recall": 0.8458,
+      "train_cv_f1_score": 0.6704,
+      "train_cv_false_negatives": 33,
+      "train_cv_false_positives": 145
+    },
+    {
+      "threshold": 0.3,
+      "train_cv_accuracy": 0.7378,
+      "train_cv_precision": 0.5917,
+      "train_cv_recall": 0.7991,
+      "train_cv_f1_score": 0.6799,
+      "train_cv_false_negatives": 43,
+      "train_cv_false_positives": 118
+    },
+    {
+      "threshold": 0.35,
+      "train_cv_accuracy": 0.7638,
+      "train_cv_precision": 0.6444,
+      "train_cv_recall": 0.7196,
+      "train_cv_f1_score": 0.6799,
+      "train_cv_false_negatives": 60,
+      "train_cv_false_positives": 85
+    },
+    {
+      "threshold": 0.4,
+      "train_cv_accuracy": 0.7801,
+      "train_cv_precision": 0.6872,
+      "train_cv_recall": 0.6776,
+      "train_cv_f1_score": 0.6824,
+      "train_cv_false_negatives": 69,
+      "train_cv_false_positives": 66
+    },
+    {
+      "threshold": 0.45,
+      "train_cv_accuracy": 0.7899,
+      "train_cv_precision": 0.7273,
+      "train_cv_recall": 0.6355,
+      "train_cv_f1_score": 0.6783,
+      "train_cv_false_negatives": 78,
+      "train_cv_false_positives": 51
+    },
+    {
+      "threshold": 0.5,
+      "train_cv_accuracy": 0.7785,
+      "train_cv_precision": 0.7378,
+      "train_cv_recall": 0.5654,
+      "train_cv_f1_score": 0.6402,
+      "train_cv_false_negatives": 93,
+      "train_cv_false_positives": 43
+    },
+    {
+      "threshold": 0.55,
+      "train_cv_accuracy": 0.7834,
+      "train_cv_precision": 0.7682,
+      "train_cv_recall": 0.5421,
+      "train_cv_f1_score": 0.6356,
+      "train_cv_false_negatives": 98,
+      "train_cv_false_positives": 35
+    },
+    {
+      "threshold": 0.6,
+      "train_cv_accuracy": 0.7769,
+      "train_cv_precision": 0.781,
+      "train_cv_recall": 0.5,
+      "train_cv_f1_score": 0.6097,
+      "train_cv_false_negatives": 107,
+      "train_cv_false_positives": 30
+    }
+  ],
+  "threshold_sweep": [
+    {
+      "threshold": 0.25,
+      "accuracy": 0.7208,
+      "precision": 0.5663,
+      "recall": 0.8704,
+      "f1_score": 0.6861,
+      "false_negatives": 7,
+      "false_positives": 36,
+      "true_positives": 47,
+      "true_negatives": 64
+    },
+    {
+      "threshold": 0.3,
+      "accuracy": 0.7208,
+      "precision": 0.5714,
+      "recall": 0.8148,
+      "f1_score": 0.6718,
+      "false_negatives": 10,
+      "false_positives": 33,
+      "true_positives": 44,
+      "true_negatives": 67
+    },
+    {
+      "threshold": 0.35,
+      "accuracy": 0.7143,
+      "precision": 0.5758,
+      "recall": 0.7037,
+      "f1_score": 0.6333,
+      "false_negatives": 16,
+      "false_positives": 28,
+      "true_positives": 38,
+      "true_negatives": 72
+    },
+    {
+      "threshold": 0.4,
+      "accuracy": 0.7338,
+      "precision": 0.614,
+      "recall": 0.6481,
+      "f1_score": 0.6306,
+      "false_negatives": 19,
+      "false_positives": 22,
+      "true_positives": 35,
+      "true_negatives": 78
+    },
+    {
+      "threshold": 0.45,
+      "accuracy": 0.7143,
+      "precision": 0.5926,
+      "recall": 0.5926,
+      "f1_score": 0.5926,
+      "false_negatives": 22,
+      "false_positives": 22,
+      "true_positives": 32,
+      "true_negatives": 78
+    },
+    {
+      "threshold": 0.5,
+      "accuracy": 0.6948,
+      "precision": 0.5745,
+      "recall": 0.5,
+      "f1_score": 0.5347,
+      "false_negatives": 27,
+      "false_positives": 20,
+      "true_positives": 27,
+      "true_negatives": 80
+    },
+    {
+      "threshold": 0.55,
+      "accuracy": 0.7078,
+      "precision": 0.6047,
+      "recall": 0.4815,
+      "f1_score": 0.5361,
+      "false_negatives": 28,
+      "false_positives": 17,
+      "true_positives": 26,
+      "true_negatives": 83
+    },
+    {
+      "threshold": 0.6,
+      "accuracy": 0.7468,
+      "precision": 0.7027,
+      "recall": 0.4815,
+      "f1_score": 0.5714,
+      "false_negatives": 28,
+      "false_positives": 11,
+      "true_positives": 26,
+      "true_negatives": 89
+    }
+  ],
+  "feature_coefficients_lr": {
+    "Pregnancies": 0.3206,
+    "Glucose": 1.0238,
+    "BloodPressure": 0.0174,
+    "SkinThickness": 0.059,
+    "Insulin": 0.0162,
+    "BMI": 0.5988,
+    "DiabetesPedigreeFunction": 0.2557,
+    "Age": 0.1891
+  },
+  "feature_importance_gb": {
+    "Pregnancies": 0.0415,
+    "Glucose": 0.4395,
+    "BloodPressure": 0.0223,
+    "SkinThickness": 0.0249,
+    "Insulin": 0.0648,
+    "BMI": 0.1785,
+    "DiabetesPedigreeFunction": 0.1102,
+    "Age": 0.1183
+  },
+  "feature_importance_rf": {
+    "Pregnancies": 0.0558,
+    "Glucose": 0.4181,
+    "BloodPressure": 0.0362,
+    "SkinThickness": 0.0458,
+    "Insulin": 0.0938,
+    "BMI": 0.1733,
+    "DiabetesPedigreeFunction": 0.0663,
+    "Age": 0.1108
+  }
+}

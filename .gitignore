@@ -1,0 +1,90 @@
+# ==============================================================================
+# GlucoCare AI - Root .gitignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Python & Virtual Environments
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+
+# ------------------------------------------------------------------------------
+# 2. Local Databases & Temporary Runtime Data (No PHI or Local DB committed)
+# ------------------------------------------------------------------------------
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+backend/gluco_assessments.db
+
+# ------------------------------------------------------------------------------
+# 3. Environment & Secret Configuration Files
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+*.env.*
+frontend/.env
+frontend/.env.*
+
+# Explicitly keep example environment templates for developers
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# ------------------------------------------------------------------------------
+# 4. Node.js & Frontend Build Outputs
+# ------------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ------------------------------------------------------------------------------
+# 5. IDE & Operating System Artifacts
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ------------------------------------------------------------------------------
+# 6. Production Model Artifacts & Benchmark Data (MUST BE COMMITTED)
+# ------------------------------------------------------------------------------
+!backend/saved_models/
+!backend/saved_models/*.joblib
+!backend/saved_models/*.json
+!backend/data/
+!backend/data/*.csv
